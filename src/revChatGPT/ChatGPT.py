@@ -149,7 +149,7 @@ class Chatbot:
         options.add_argument("--disable-setuid-sandbox")
         options.add_argument("--disable-dev-shm-usage")
         print("Spawning browser...")
-        driver = uc.Chrome(enable_cdp_events=True, options=options)
+        driver = uc.Chrome(enable_cdp_events=True, options=options, version_main=self.config['chome_version'])
         print("Browser spawned.")
         driver.add_cdp_listener(
             "Network.responseReceivedExtraInfo", lambda msg: detect_cookies(msg))
